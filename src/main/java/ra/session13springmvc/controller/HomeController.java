@@ -17,7 +17,7 @@ import java.util.Date;
 // Component, Controller, Service, Repository
 @Controller // chú thích thành phần controller trong mvc
 @RequiredArgsConstructor
-@RequestMapping("/home")
+//@RequestMapping("")
 public class HomeController {
 //    @Autowired
 //    private DaoService daoService;
@@ -31,9 +31,6 @@ public class HomeController {
 
     @RequestMapping({"/","/home","/hello"})
     public String home(Model model){
-        daoService.save(new Dao(1,"Hiền",1.65,49,new Date(),500000));
-        daoService.save(new Dao(2,"Bình Pt",1.75,80,new Date(),100000));
-        daoService.save(new Dao(3,"Ngọc",1.62,51,new Date(),550000));
         model.addAttribute("list",daoService.getAll());
         return "home";
     }
@@ -45,5 +42,7 @@ public class HomeController {
         modelAndView.addObject("age",30);
         return modelAndView;
     }
+
+
 
 }

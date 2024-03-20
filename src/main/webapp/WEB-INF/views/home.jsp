@@ -13,8 +13,20 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Đy là trang home</h1>
-<table>
+<h1>Danh sach Đào</h1>
+<a href="/dao/add">Add new Dao</a>
+<table border="10" cellspacing="10" cellpadding="20">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
 <c:forEach items="${list}" var="item">
     <tr>
         <td>${item.id}</td>
@@ -23,6 +35,8 @@
         <td>${item.weight} kg</td>
         <td><fmt:formatDate value="${item.birthday}" pattern="dd/MM/yyyy"/></td>
         <td>${item.price}</td>
+        <td><a href="/dao/edit/${item.id}">Edit</a></td>
+        <td><a href="/dao/delete/${item.id}">Delete</a></td>
     </tr>
 </c:forEach>
 </table>
